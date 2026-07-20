@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>요즘가족결합 계산기 | with BTV+Max</title>
+<title>요즘가족결합 계산기 with B tv+ max | SKT 다사점</title>
 <meta name="description" content="가족 수만 고르면 SKT 요즘가족결합 최적 조합과 월 납부액을 바로 확인하세요. 3년 약정·부가세 포함 기준.">
 <link rel="preconnect" href="https://cdn.jsdelivr.net">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
@@ -27,13 +27,20 @@ body{
   background:#FFFFFF !important;color:#1A1A1A;line-height:1.5;
   font-feature-settings:"tnum";
 }
-.wrap{max-width:480px;margin:0 auto;padding:0 20px 150px}
+.wrap{
+  max-width:480px;margin:0 auto;padding-bottom:150px;
+  padding-left:max(clamp(16px,4.5vw,24px),env(safe-area-inset-left));
+  padding-right:max(clamp(16px,4.5vw,24px),env(safe-area-inset-right));
+}
 [hidden]{display:none !important}
 
 /* ── 헤더 ─────────────────────────── */
-header{display:flex;align-items:center;justify-content:space-between;padding:20px 0 4px}
-.brand{font-size:15px;font-weight:800;letter-spacing:-.02em;color:#1A1A1A}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:20px 0 4px}
+.brand{display:flex;flex-direction:column;gap:1px}
+.brand-main{font-size:clamp(14px,4vw,16px);font-weight:800;letter-spacing:-.02em;color:#1A1A1A;white-space:nowrap}
+.brand-main em{color:var(--red);font-style:normal}
 .brand em{color:var(--red);font-style:normal}
+.brand-sub{font-size:10px;font-weight:700;color:var(--red);letter-spacing:.01em}
 .mode-toggle{display:flex;background:var(--card);border-radius:var(--radius-pill);padding:3px}
 .mode-toggle button{
   border:0;background:transparent;font:inherit;font-size:12px;font-weight:600;
@@ -48,7 +55,7 @@ header{display:flex;align-items:center;justify-content:space-between;padding:20p
 
 /* ── 히어로 ───────────────────────── */
 .hero{padding:20px 0 8px}
-.hero h1{font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.28;color:#1A1A1A}
+.hero h1{font-size:clamp(22px,7vw,27px);font-weight:800;letter-spacing:-.03em;line-height:1.28;color:#1A1A1A}
 .hero h1 strong{color:var(--red)}
 .hero p{margin-top:8px;font-size:14px;color:var(--ink-sub)}
 
@@ -108,7 +115,7 @@ body.pro-mode .pro{display:block}
 }
 .result-head{padding:22px 22px 18px;border-bottom:1px dashed var(--line)}
 .result-head .cap{font-size:13px;font-weight:600;color:var(--ink-sub)}
-.final{font-size:40px;font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:4px;color:#1A1A1A}
+.final{font-size:clamp(32px,10vw,42px);font-weight:800;letter-spacing:-.03em;line-height:1.1;margin-top:4px;color:#1A1A1A}
 .final small{font-size:18px;font-weight:700;margin-left:2px}
 .save-badge{
   display:inline-flex;align-items:center;gap:6px;margin-top:12px;
@@ -118,6 +125,12 @@ body.pro-mode .pro{display:block}
 .save-badge::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--red)}
 .vs-current{margin-top:8px;font-size:13px;font-weight:600;color:#1A1A1A}
 .vs-current b{color:var(--red)}
+.was-price{font-size:14px;color:var(--ink-sub);text-decoration:line-through;text-decoration-color:#C7C7C7}
+.offer-tease{
+  display:inline-flex;align-items:center;margin-top:10px;
+  background:#FFF8E8;color:#8A6300;font-size:12px;font-weight:700;
+  padding:7px 13px;border-radius:var(--radius-pill);
+}
 
 .receipt{padding:6px 22px 4px}
 .row{
@@ -145,6 +158,29 @@ body.pro-mode .pro{display:block}
 .quick{margin-top:18px}
 .quick .step-label{margin-bottom:8px}
 
+/* 할인오퍼 스텝퍼 (상담) */
+.offer-box{margin-top:18px}
+.stepper{
+  display:flex;align-items:center;gap:14px;margin-top:10px;
+  background:var(--card);border-radius:16px;padding:10px 16px;width:fit-content;
+}
+.step-btn{
+  width:36px;height:36px;border:0;border-radius:50%;background:#FFFFFF;
+  color:#1A1A1A;font-size:18px;font-weight:700;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  box-shadow:0 1px 3px rgba(0,0,0,.12);
+}
+.step-btn:active{transform:scale(.92)}
+.step-btn:disabled{opacity:.3;cursor:not-allowed}
+.stepper .val{font-size:16px;font-weight:800;min-width:76px;text-align:center;color:var(--red)}
+.offer-hint{margin-top:6px;font-size:11px;color:var(--ink-sub)}
+
+.diff-badge{
+  display:inline-flex;align-items:center;gap:5px;margin-left:8px;
+  background:#1A1A1A;color:#FFFFFF;font-size:10px;font-weight:700;
+  padding:3px 9px;border-radius:var(--radius-pill);vertical-align:middle;
+}
+
 /* 시나리오 담기 (상담) */
 .scenario-box{margin-top:18px}
 .scenario-chips{display:flex;flex-direction:column;gap:8px;margin-top:10px}
@@ -166,7 +202,9 @@ body.pro-mode .pro{display:block}
 .cta{
   position:fixed;left:0;right:0;bottom:0;
   background:linear-gradient(to top,#FFFFFF 70%,rgba(255,255,255,0));
-  padding:12px 20px calc(16px + env(safe-area-inset-bottom));
+  padding-top:12px;padding-bottom:calc(16px + env(safe-area-inset-bottom));
+  padding-left:max(clamp(16px,4.5vw,24px),env(safe-area-inset-left));
+  padding-right:max(clamp(16px,4.5vw,24px),env(safe-area-inset-right));
 }
 .cta-inner{max-width:480px;margin:0 auto;display:flex;gap:10px}
 .btn{
@@ -194,6 +232,30 @@ body.pro-mode .pro{display:block}
   transition:opacity .25s,transform .25s;white-space:nowrap;z-index:50;
 }
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ── 매장 정보 모달 ─────────────────── */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;
+  display:flex;align-items:flex-end;justify-content:center;
+}
+.modal-card{
+  width:100%;max-width:480px;background:#FFFFFF;border-radius:22px 22px 0 0;
+  padding:22px 22px calc(22px + env(safe-area-inset-bottom));
+}
+.modal-title{font-size:17px;font-weight:800;color:#1A1A1A}
+.modal-desc{margin-top:6px;font-size:13px;color:var(--ink-sub);line-height:1.5}
+.modal-label{display:block;margin-top:16px;margin-bottom:6px;font-size:12px;font-weight:700;color:#1A1A1A}
+.modal-input{
+  width:100%;border:1.5px solid var(--line);border-radius:12px;background:#FFFFFF;color:#1A1A1A;
+  font:inherit;font-size:15px;padding:13px 14px;outline:none;
+}
+.modal-input:focus{border-color:var(--red)}
+.modal-actions{display:flex;gap:10px;margin-top:20px}
+.modal-actions .btn{padding:14px 0;font-size:14px}
+.store-edit-link{
+  display:block;margin:14px auto 0;background:none;border:0;
+  font:inherit;font-size:11px;color:var(--ink-sub);text-decoration:underline;cursor:pointer;
+}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 </head>
@@ -203,7 +265,10 @@ body.pro-mode .pro{display:block}
   <!-- ══════════ 1페이지: 조건 입력 ══════════ -->
   <div id="viewInput">
     <header>
-      <div class="brand"><em>T</em> 요즘가족결합 계산기</div>
+      <div class="brand">
+        <div class="brand-main"><em>T</em> 요즘가족결합 계산기</div>
+        <div class="brand-sub">with B tv+ max</div>
+      </div>
       <div class="mode-toggle" role="tablist" aria-label="모드 선택">
         <button id="modeEasy" class="on" role="tab" aria-selected="true">간편</button>
         <button id="modePro" role="tab" aria-selected="false">상담</button>
@@ -212,7 +277,7 @@ body.pro-mode .pro{display:block}
 
     <section class="hero">
       <h1>가족을 묶으면,<br>매달 <strong id="heroSave">얼마나</strong> 아낄까요?</h1>
-      <p>3가지만 고르면 최적 조합과 요금을 바로 보여드려요.</p>
+      <p>⏱ 1분이면 충분해요. 3가지만 고르면 최적 조합과 요금을 바로 보여드려요.</p>
     </section>
 
     <section class="step">
@@ -265,19 +330,34 @@ body.pro-mode .pro{display:block}
   <div id="viewResult" hidden>
     <header>
       <button class="back-btn" id="btnBack">← 조건 바꾸기</button>
-      <div class="brand"><em>T</em> 견적 결과</div>
+      <div class="brand"><div class="brand-main"><em>T</em> 견적 결과</div></div>
     </header>
 
     <section class="result" id="resultCard">
       <div class="result-head">
-        <div class="cap" id="finalCap">가족 할인 모두 반영한 체감 월 요금</div>
+        <div class="cap" id="finalCap">가족 할인 모두 반영한 체감 월 요금<span class="diff-badge" id="diffBadge" hidden>직접조정 반영</span></div>
+        <div class="was-price" id="wasPrice" hidden></div>
         <div class="final"><span id="finalAmt">0</span><small>원</small></div>
         <div class="save-badge">가족 전체 매달 <span id="badgeAmt" style="margin:0 2px">0</span>원 아끼는 중</div>
         <div class="vs-current" id="vsCurrent" hidden></div>
+        <div class="offer-tease" id="offerTease" hidden>🎁 추가 할인이 가능한지 직원에게 문의해보세요</div>
       </div>
       <div class="receipt" id="receiptRows"></div>
       <div class="phone-note" id="phoneNote"></div>
-      <div class="closing">3년이면 가족 전체 <b id="threeYear">0원</b> 절약</div>
+      <div class="closing">3년이면 가족 전체 <b id="threeYear">0원</b> 절약<br><span id="lossFrame" style="font-size:12px"></span></div>
+    </section>
+
+    <section class="offer-box pro">
+      <div class="step-label">
+        <span class="q" style="font-size:14px">할인오퍼 적용</span>
+        <span class="hint">유선 상품, 매장 프로모션에 맞춰 직접 입력</span>
+      </div>
+      <div class="stepper">
+        <button class="step-btn" id="offerMinus" aria-label="할인오퍼 1,000원 감소">－</button>
+        <span class="val" id="offerValue">0원</span>
+        <button class="step-btn" id="offerPlus" aria-label="할인오퍼 1,000원 증가">＋</button>
+      </div>
+      <div class="offer-hint" id="offerHint">1,000원 단위 · 결과의 "유선 월 납부액"에 즉시 반영돼요</div>
     </section>
 
     <section class="quick" id="quickNet">
@@ -296,6 +376,7 @@ body.pro-mode .pro{display:block}
     <div class="notice">
       <b>가입 전 꼭 확인하세요</b><br>
       · 인터넷은 <b>1년 이상 신규 약정</b>으로 개통하고, <b>개통일 포함 30일 안에</b> 휴대폰과 결합해야 할인이 적용돼요<br>
+      · <b>인터넷 가입자 명의와 같은 이름</b>의 휴대폰 회선이 결합 그룹에 꼭 포함돼야 해요<br>
       · 가족의 SKT 가입연수 합산이 길다면(20~30년 이상) <b>온가족할인</b>이 더 유리할 수 있어요 — 매장에서 두 상품을 비교해 보세요
     </div>
 
@@ -305,6 +386,7 @@ body.pro-mode .pro{display:block}
       · 요즘가족결합은 온가족할인과 별개 상품이며 중복 가입할 수 없습니다<br>
       · 실제 청구 금액은 가입 조건에 따라 달라질 수 있으며, 정확한 견적은 매장에서 확인해 주세요
     </p>
+    <button class="store-edit-link" id="btnStoreEdit">매장 정보 변경</button>
   </div>
 </div>
 
@@ -321,6 +403,21 @@ body.pro-mode .pro{display:block}
   </div>
 </div>
 <div class="toast" id="toast"></div>
+
+<div class="modal-backdrop" id="storeModal" hidden>
+  <div class="modal-card">
+    <div class="modal-title">매장 정보 설정</div>
+    <p class="modal-desc">한 번만 입력해두면 "매장 상담 예약" 버튼으로 바로 연결돼요.</p>
+    <label class="modal-label">매장명</label>
+    <input class="modal-input" id="storeName" type="text" placeholder="예: SKT 다사점">
+    <label class="modal-label">전화번호</label>
+    <input class="modal-input" id="storePhone" type="tel" inputmode="tel" placeholder="예: 053-000-0000">
+    <div class="modal-actions">
+      <button class="btn btn-ghost" id="storeCancel">취소</button>
+      <button class="btn btn-main" id="storeSave">저장하고 연결</button>
+    </div>
+  </div>
+</div>
 
 <script>
 /* ============================================================
@@ -356,6 +453,7 @@ const CONFIG = {
     mobileOnly: { 1:0, 2:6000, 3:15000, 4:20000, 5:24000 },
   },
   recommend(size){ return size>=4 ? "GIGA" : "GIGA_LITE"; },
+  offer: { step:1000, max:50000 }, // 상담모드 수동 할인오퍼 — 1,000원 단위, 최대 50,000원
 };
 
 /* ============================================================
@@ -370,35 +468,38 @@ const S = {
   btv: "MAX",
   settop: "SMART3",
   currentBill: 0,
+  offerAmount: 0, // 상담모드 할인오퍼 (원, 1,000원 단위)
+  pro: false,     // 현재 모드 (간편/상담) — 오퍼를 고객에게 보일지 판단
   saved: [],   // 상담모드 시나리오 (최대 3)
 };
 
 /* ============================================================
  * ENGINE — 순서 고정: 정가 → 결합확정가 → 셋톱할인 → 요즘가족결합
  * ========================================================== */
-function calc(){
-  const hasNet = S.internet !== "NONE";
-  const hasTv  = S.tv && hasNet;
+function calc(over){
+  const st = over ? Object.assign({}, S, over) : S;
+  const hasNet = st.internet !== "NONE";
+  const hasTv  = st.tv && hasNet;
   const lines  = [];
   let wired = 0;
 
   if(hasNet){
-    const net = CONFIG.internet[S.internet];
-    const wifiDelta = CONFIG.wifiOption[S.wifi].delta;
+    const net = CONFIG.internet[st.internet];
+    const wifiDelta = CONFIG.wifiOption[st.wifi].delta;
     const netPrice = net.price + wifiDelta;
     lines.push({name:net.name, small:net.sub+" · 3년 약정 정가"+(wifiDelta?" · 구형 공유기 "+wifiDelta.toLocaleString()+"원":""), amt:netPrice});
     wired += netPrice;
   }
   if(hasTv){
-    const b = CONFIG.btv[S.btv];
-    const btvPrice = (S.btv==="MAX") ? (hasNet ? b.withInternet : b.standalone) : b.flat;
-    lines.push({name:b.name, small:b.sub+(S.btv==="MAX"&&hasNet?" · 인터넷 결합가":""), amt:btvPrice});
+    const b = CONFIG.btv[st.btv];
+    const btvPrice = (st.btv==="MAX") ? (hasNet ? b.withInternet : b.standalone) : b.flat;
+    lines.push({name:b.name, small:b.sub+(st.btv==="MAX"&&hasNet?" · 인터넷 결합가":""), amt:btvPrice});
     wired += btvPrice;
 
-    const stb = CONFIG.settop[S.settop];
+    const stb = CONFIG.settop[st.settop];
     let stbPrice = stb.price;
     let stbSmall = "임대료";
-    if(stb.cls==="AI" && CONFIG.internet[S.internet].isGigaClass && b.isAllClass){
+    if(stb.cls==="AI" && CONFIG.internet[st.internet].isGigaClass && b.isAllClass){
       stbPrice -= CONFIG.settopAiDiscount;
       stbSmall = "임대료 · 기가+All 이상 결합 -"+CONFIG.settopAiDiscount.toLocaleString()+"원";
     }
@@ -408,19 +509,39 @@ function calc(){
 
   let famNet=0, famIptv=0, famPhone=0;
   if(hasNet){
-    famNet  = CONFIG.family.internet[S.internet] || 0;
+    famNet  = CONFIG.family.internet[st.internet] || 0;
     famIptv = hasTv ? CONFIG.family.iptv : 0;
-    famPhone = CONFIG.family.phone[S.family] || 0;
-    if(S.internet==="GWAN") famPhone = Math.min(famPhone, CONFIG.family.phoneCapGwan);
+    famPhone = CONFIG.family.phone[st.family] || 0;
+    if(st.internet==="GWAN") famPhone = Math.min(famPhone, CONFIG.family.phoneCapGwan);
     if(famNet)  lines.push({name:"요즘가족결합 · 인터넷 할인", amt:-famNet,  discount:true});
     if(famIptv) lines.push({name:"요즘가족결합 · IPTV 할인",   amt:-famIptv, discount:true});
     wired -= (famNet + famIptv);
   }else{
-    famPhone = CONFIG.family.mobileOnly[S.family] || 0;
+    famPhone = CONFIG.family.mobileOnly[st.family] || 0;
   }
+
+  // 5) 할인오퍼 (상담모드 수동 입력, 유선상품 한정) — 고객화면(간편모드)엔 숫자를 노출하지 않음
+  const offerSet = hasNet && st.offerAmount > 0;
+  const offerApplied = offerSet && st.pro;   // 상담모드: 실제 반영
+  const offerPending = offerSet && !st.pro;  // 간편모드: "직원에게 문의" 넛지만
+  if(offerApplied){
+    lines.push({name:"할인오퍼 (상담 직접입력)", small:"매장 프로모션 · 1,000원 단위", amt:-st.offerAmount, discount:true});
+    wired -= st.offerAmount;
+  }
+
   wired = Math.max(wired, 0);
-  const totalSave = famNet + famIptv + famPhone;
-  return { wired, lines, famPhone, famNet, famIptv, totalSave, hasNet, hasTv };
+  const totalSave = famNet + famIptv + famPhone; // 배지는 공식 요즘가족결합 할인만 표기(오퍼는 별도)
+
+  // 정가 총액 (어떤 할인도 적용 안 한 기준가) — 앵커링 표시 전용, wired 계산 로직과 무관
+  let gross = 0;
+  if(hasNet) gross += CONFIG.internet[st.internet].price + CONFIG.wifiOption[st.wifi].delta;
+  if(hasTv){
+    const b = CONFIG.btv[st.btv];
+    gross += (st.btv==="MAX") ? b.standalone : b.flat;
+    gross += CONFIG.settop[st.settop].price;
+  }
+
+  return { wired, lines, famPhone, famNet, famIptv, totalSave, hasNet, hasTv, offerApplied, offerPending, gross };
 }
 
 /* ============================================================
@@ -481,7 +602,7 @@ function renderMaxCard(){
   if(!S.tv){ el.style.display="none"; return; }
   el.style.display="block";
   if(S.btv==="MAX"){
-    el.innerHTML = '<b>B tv+ max</b> — 실시간 255채널 + 지상파 3사 · VOD 30만편을 하나로<small>유튜브 프리미엄 월 2,000원 할인 포함 · 2026년 7월 출시 신상품</small>';
+    el.innerHTML = '<b>B tv+ max</b> — 실시간 255채널 + 지상파 3사 · VOD 30만편을 하나로<small>유튜브 프리미엄 월 2,000원 할인 · 요즘가족결합 시 모바일 B tv 데이터 매일 1GB 무료</small>';
   }else{
     const diff = CONFIG.btv.MAX.withInternet - CONFIG.btv[S.btv].flat;
     el.innerHTML = '월 <b>+'+won(diff)+'원</b>이면 <b>B tv+ max</b> — 전 채널 · 지상파 · VOD 30만편까지 전부<small>위에서 B tv+ max를 선택하면 바로 반영돼요</small>';
@@ -499,16 +620,39 @@ function renderResult(r){
   const perceived = Math.max(r.wired - r.famPhone, 0);
   const cap = $("finalCap");
 
+  const badge = $("diffBadge");
   if(r.hasNet){
-    cap.textContent = "가족 할인 모두 반영한 체감 월 요금";
+    cap.firstChild.textContent = "가족 할인 모두 반영한 체감 월 요금";
     $("finalAmt").textContent = won(perceived);
+    badge.hidden = !r.offerApplied;
   }else{
-    cap.textContent = "가족 휴대폰 매달 할인";
+    cap.firstChild.textContent = r.famPhone>0 ? "가족 휴대폰 매달 할인" : "아직 결합 혜택이 없어요";
     $("finalAmt").textContent = won(r.famPhone);
+    badge.hidden = true;
   }
+  $("offerValue").textContent = won(S.offerAmount)+"원";
+  $("offerMinus").disabled = !r.hasNet || S.offerAmount<=0;
+  $("offerPlus").disabled  = !r.hasNet || S.offerAmount>=CONFIG.offer.max;
+  $("offerHint").textContent = r.hasNet
+    ? "1,000원 단위 · 결과의 \"유선 월 납부액\"에 즉시 반영돼요"
+    : "인터넷을 선택해야 적용할 수 있어요";
+
+  // 정가 앵커링(취소선) — 실제로 아낄 때만 노출
+  const wpEl = $("wasPrice");
+  if(r.hasNet && r.gross > perceived){
+    wpEl.hidden = false;
+    wpEl.textContent = "정가 "+won(r.gross)+"원";
+  }else{ wpEl.hidden = true; }
+
+  // 할인오퍼 문의 넛지 (간편모드 전용 — 실제 금액은 숨김)
+  $("offerTease").hidden = !r.offerPending;
+
   $("badgeAmt").textContent = won(r.totalSave);
   $("heroSave").textContent = r.totalSave>0 ? won(r.totalSave)+"원" : "얼마나";
   $("threeYear").textContent = won(r.totalSave*36)+"원";
+  $("lossFrame").textContent = r.totalSave>=15000
+    ? "결합을 미루면 매달 "+won(r.totalSave)+"원을 그냥 흘려보내는 셈이에요"
+    : "";
 
   // 현재 요금 대비 (정직 표기: 비싸지면 +로 그대로 보여줌)
   const vs = $("vsCurrent");
@@ -521,6 +665,9 @@ function renderResult(r){
   }else{ vs.hidden = true; }
 
   const box = $("receiptRows"); box.innerHTML="";
+  if(r.lines.length===0){
+    addRow(box, "", "인터넷·TV 없이 휴대폰만 결합했어요", "");
+  }
   r.lines.forEach(l=>{
     const d = document.createElement("div");
     d.className = "row"+(l.discount?" discount":"");
@@ -573,9 +720,12 @@ function scenarioLabel(s){
 function renderScenarios(){
   const box = $("scenarioChips"); box.innerHTML="";
   S.saved.forEach((s,i)=>{
+    // 저장된 가격이 아니라, 지금 시점(현재 오퍼·모드 포함)으로 항상 다시 계산 — 스냅샷 오차 방지
+    const rr = calc(s);
+    const nowPrice = rr.hasNet ? Math.max(rr.wired-rr.famPhone,0) : rr.famPhone;
     const c = document.createElement("button");
     c.className="chip";
-    c.innerHTML = '<span>'+scenarioLabel(s)+'</span><span><b>'+won(s.perceived)+'원</b> <span class="del" data-i="'+i+'">✕</span></span>';
+    c.innerHTML = '<span>'+scenarioLabel(s)+'</span><span><b>'+won(nowPrice)+'원</b> <span class="del" data-i="'+i+'">✕</span></span>';
     c.addEventListener("click", e=>{
       if(e.target.classList.contains("del")){
         S.saved.splice(+e.target.dataset.i,1); renderScenarios(); return;
@@ -588,11 +738,18 @@ function renderScenarios(){
 }
 $("btnSaveScenario").addEventListener("click", ()=>{
   if(S.saved.length>=3){ toast("비교는 최대 3개까지 담을 수 있어요"); return; }
-  const r = calc();
-  const perceived = r.hasNet ? Math.max(r.wired-r.famPhone,0) : r.famPhone;
-  S.saved.push({family:S.family, internet:S.internet, wifi:S.wifi, tv:S.tv, btv:S.btv, settop:S.settop, perceived});
+  S.saved.push({family:S.family, internet:S.internet, wifi:S.wifi, tv:S.tv, btv:S.btv, settop:S.settop});
   renderScenarios();
   toast("견적을 담았어요 — 탭하면 다시 불러와요");
+});
+
+$("offerMinus").addEventListener("click", ()=>{
+  S.offerAmount = Math.max(0, S.offerAmount - CONFIG.offer.step);
+  renderResult(calc());
+});
+$("offerPlus").addEventListener("click", ()=>{
+  S.offerAmount = Math.min(CONFIG.offer.max, S.offerAmount + CONFIG.offer.step);
+  renderResult(calc());
 });
 
 function update(){
@@ -620,10 +777,10 @@ $("currentBill").addEventListener("input", e=>{
 });
 
 /* ── 모드 토글 ── */
-$("modeEasy").addEventListener("click",()=>{document.body.classList.remove("pro-mode");
-  $("modeEasy").classList.add("on");$("modePro").classList.remove("on");});
-$("modePro").addEventListener("click",()=>{document.body.classList.add("pro-mode");
-  $("modePro").classList.add("on");$("modeEasy").classList.remove("on");});
+$("modeEasy").addEventListener("click",()=>{S.pro=false;document.body.classList.remove("pro-mode");
+  $("modeEasy").classList.add("on");$("modePro").classList.remove("on");update();});
+$("modePro").addEventListener("click",()=>{S.pro=true;document.body.classList.add("pro-mode");
+  $("modePro").classList.add("on");$("modeEasy").classList.remove("on");update();});
 
 /* ── CTA ── */
 function toast(msg){
@@ -643,6 +800,7 @@ $("btnCopy").addEventListener("click",()=>{
     txt += "체감 월 요금: "+won(perceived)+"원\n";
     txt += "(실제 청구: 유선 "+won(r.wired)+"원, 휴대폰 요금에서 -"+won(r.famPhone)+"원)\n";
   }
+  if(r.offerApplied) txt += "할인오퍼 적용: -"+won(S.offerAmount)+"원 (상담 직접입력)\n";
   txt += "가족 총 할인: 매달 "+won(r.totalSave)+"원 (3년 "+won(r.totalSave*36)+"원)\n";
   txt += "※ 2026.7 기준, 실제 청구액은 가입 조건에 따라 달라질 수 있음";
   navigator.clipboard && navigator.clipboard.writeText(txt)
@@ -650,8 +808,42 @@ $("btnCopy").addEventListener("click",()=>{
     .catch(()=>toast("복사에 실패했어요"));
 });
 $("btnVisit").addEventListener("click",()=>{
-  toast("SKT 다사점 053-000-0000"); // TODO: 매장 연락처/예약 링크로 교체
+  const s = loadStore();
+  if(s && s.name && s.phone){ callStore(s); }else{ openStoreModal(); }
 });
+$("btnStoreEdit").addEventListener("click", openStoreModal);
+$("storeCancel").addEventListener("click", closeStoreModal);
+$("storeModal").addEventListener("click", e=>{ if(e.target.id==="storeModal") closeStoreModal(); });
+$("storeSave").addEventListener("click", ()=>{
+  const name = $("storeName").value.trim();
+  const phone = $("storePhone").value.trim();
+  const digits = phone.replace(/[^0-9]/g,"");
+  if(!name || !phone){ toast("매장명과 전화번호를 모두 입력해주세요"); return; }
+  if(digits.length < 7){ toast("전화번호를 다시 확인해주세요"); return; }
+  saveStore(name, phone);
+  closeStoreModal();
+  callStore({name, phone});
+});
+
+function loadStore(){
+  try{ return JSON.parse(localStorage.getItem("skt_store_info") || "null"); }
+  catch(e){ return null; }
+}
+function saveStore(name, phone){
+  try{ localStorage.setItem("skt_store_info", JSON.stringify({name, phone})); }catch(e){}
+}
+function openStoreModal(){
+  const s = loadStore();
+  $("storeName").value = s?s.name:"";
+  $("storePhone").value = s?s.phone:"";
+  $("storeModal").hidden = false;
+}
+function closeStoreModal(){ $("storeModal").hidden = true; }
+function callStore(s){
+  toast(s.name+" 연결 중");
+  const tel = s.phone.replace(/[^0-9+]/g,"");
+  if(tel) window.location.href = "tel:"+tel;
+}
 
 update();
 showView("input");
